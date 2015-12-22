@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Learning Angular Js</title>
+      <script type="text/javascript" src="angular.min.js">
+
+    </script>
+  </head>
+  <body>
+    <div class="content">
+        <div class="topbar">
+
+        </div>
+        <div class="main-content ">
+          <div class="" ng-app ng-init="qnty=1;cost=2;">
+            <table>
+              <tr>
+                <td>
+                  Quantity
+                </td>
+                <td>
+                  <input type="number" name="qnty" value="" ng-model="qnty">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Cost
+                </td>
+                <td>
+                  <input type="number" name="cost" value="" ng-model="cost">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Total
+                </td>
+                <td>
+                  {{cost*qnty | currency}}
+                </td>
+              </tr>
+            </table>
+
+          </div>
+        </div>
+    </div>
+  </body>
+</html>
