@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Trial 1 with mvc</title>
-    <script type="text/javascript" src="angular.min.js">
-      </script>
-<script type="text/javascript" src="trial1.js">
-    </script>
-  </head>
-  <body>
-<div class="" ng-app="trial1"  ng-controller="trialController as invoice">
+
+<head>
+  <meta charset="utf-8">
+  <title>Trial 1 with mvc</title>
+  <script type="text/javascript" src="angular.min.js"></script>
+  <script type="text/javascript" src="trial1.js"></script>
+</head>
+
+<body>
+  <div class="" ng-app="trial1" ng-controller="trialController as invoice">
     <table>
       <tr>
         <td>
           Quantity
         </td>
         <td>
-          <input type="number" name="name" value=""  min="0" ng-model="invoice.qnty" required>
+          <input type="number" name="name" value="" min="0" ng-model="invoice.qnty" required>
         </td>
       </tr>
       <tr>
@@ -33,7 +33,7 @@
         </td>
         <td>
           <select class="" name="" ng-model="invoice.initialCurrency">
-          <option ng-repeat="c in invoice.currencies">{{c}}</option>
+            <option ng-repeat="c in invoice.currencies">{{c}}</option>
           </select>
         </td>
       </tr>
@@ -47,6 +47,7 @@
       </tr>
     </table>
     <button type="button" name="button" ng-click="invoice.pay()">Pay</button>
-</div>
-  </body>
+  </div>
+</body>
+
 </html>

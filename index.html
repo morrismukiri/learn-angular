@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="js/angular.js"></script>
+	<script src="js/app.js"></script>
+	<title>Learn Angular</title>
+</head>
+<body ng-app="userModule" >
+	<table ng-controller="usersCtrl">
+		<th>
+			<td>Name</td>
+			<td>Gender</td>
+			<td>Age</td>
+		</th>
+		<tr ng-repeat="user in users">
+			<td>{{user.name}}</td>
+			<td>{{user.gender}}</td>
+			<td>{{user.age}}</td>
+		</tr>
+	</table>
+</body>
+</html>
