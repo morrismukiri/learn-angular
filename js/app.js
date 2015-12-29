@@ -14,12 +14,16 @@
 	var githubModule = angular.module("githubModule", ['datatables']);
 	githubModule.controller("githubCtrl", ['$scope', '$http', function ($scope, $http) {
 		var githubUSername = "";
-		$scope.error = "";
+		
 		var notFoundError = function (dets) {
 			$scope.error = "Could not find the requested data";
 		}
 
 		$scope.search = function (githubUSername) {
+			$scope.error = "";
+			$scope.user=null;
+			$scope.repos=null;
+			
 			console.log('searching...');
 			$http.get('https://api.github.com/users/' + githubUSername).
 				then(function (response) {

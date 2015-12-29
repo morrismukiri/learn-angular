@@ -40,7 +40,6 @@
 				</div>
 			</div>
 		</form>
-		{{ error }}
 		<div class="details container" ng-show="user">
 			<div class="col-xs-12"><a href="{{user.html_url}}" title="{{user.html_url}}" class="h3">{{user.name}}</a></div>
 			<div class="col-xs-12"><a href="mailto:{{email}}" class="h4">{{email}}</a></div>
@@ -49,6 +48,7 @@
 		</div>
 		<h2 class="h2" ng-show="repos">Projects</h2>
 		<hr>
+		<div class="error label label-warning" ng-show="error">{{ error }}</div>
 		<div class="table-container container-fluid" ng-show="repos">
 			<table datatable="ng" class="table table-bordered table-striped table-condensed row-border hover">
 				<thead>
@@ -71,9 +71,9 @@
 						<td>{{repo.language}}</td>
 						<td>{{repo.created_at | date}}</td>
 						<td>{{repo.updated_at | date}}</td>
-						<td>{{repo.watchers_count}}</td>
-						<td>{{repo.stargazers_count}}</td>
-						<td>{{repo.forks_count}}</td>
+						<td>{{repo.watchers_count | number}}</td>
+						<td>{{repo.stargazers_count | number}}</td>
+						<td>{{repo.forks_count | number}}</td>
 					</tr>
 				</tbdoy>
 			</table>
