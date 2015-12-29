@@ -13,7 +13,8 @@
 
 	var githubModule = angular.module("githubModule", ['datatables']);
 	githubModule.controller("githubCtrl", ['$scope', '$http', function ($scope, $http) {
-		var githubUSername = '';
+		var githubUSername = "";
+		$scope.error = "";
 		var notFoundError = function (dets) {
 			$scope.error = "Could not find the requested data";
 		}
