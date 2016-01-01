@@ -14,8 +14,8 @@
 	var githubModule = angular.module("githubModule", ['datatables']);
 	githubModule.controller(
 		"githubCtrl",
-		['$scope', '$http',  '$location', '$anchorScroll',
-			function ($scope, $http,$location,$anchorScroll) {
+		['$scope', '$location', '$anchorScroll', 'github',
+			function ($scope, $location, $anchorScroll, github) {
 				$scope.githubUSername = "";
 
 				var notFoundError = function (dets) {
@@ -26,18 +26,17 @@
 					$scope.error = "";
 					$scope.user = null;
 					$scope.repos = null;
-
-					console.log('searching...');
-					$http.get('https://api.github.com/users/' + githubUSername).
-						then(function (response) {
-							$scope.user = response.data;
+					console.log('searching for ' + githubUSername + '...');
+					//search user
+					github.getUser(githubUSername).then(function (data) {
+						$scope.user = data;
+						console.log(data);
+						github.getRepos($scope.user.repos_url).then(function (data) {
+							$scope.repos = data;
 							$location.hash('userRepos');
 							$anchorScroll();
 						}, notFoundError);
-					$http.get('https://api.github.com/users/' + githubUSername + '/repos').
-						then(function (response) {
-							$scope.repos = response.data;
-						}, notFoundError);
+					}, notFoundError);
 				}
 			}]);
 })()
