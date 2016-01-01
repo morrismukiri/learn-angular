@@ -40,7 +40,7 @@
 				</div>
 			</div>
 		</form>
-		<div class="details container" ng-show="user">
+		<div class="details container" ng-show="user" id="userDetails">
 			<div class="col-xs-12"><a href="{{user.html_url}}" title="{{user.html_url}}" class="h3">{{user.name}}</a></div>
 			<div class="col-xs-12"><a href="mailto:{{email}}" class="h4">{{email}}</a></div>
 			<div class="col-xs-12">{{user.company}}</div>
@@ -50,7 +50,7 @@
 		<hr>
 		<div class="error label label-warning" ng-show="error">{{ error }}</div>
 		<div class="table-container container-fluid" ng-show="repos">
-			<table datatable="ng" class="table table-bordered table-striped table-condensed row-border hover">
+			<table i="userRepos" datatable="ng" class="table table-bordered table-striped table-condensed row-border hover">
 				<thead>
 					<tr>
 						<th>Name</th>

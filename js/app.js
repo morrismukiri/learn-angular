@@ -12,27 +12,32 @@
 	}]);
 
 	var githubModule = angular.module("githubModule", ['datatables']);
-	githubModule.controller("githubCtrl", ['$scope', '$http', function ($scope, $http) {
-		var githubUSername = "";
-		
-		var notFoundError = function (dets) {
-			$scope.error = "Could not find the requested data";
-		}
+	githubModule.controller(
+		"githubCtrl",
+		['$scope', '$http',  '$location', '$anchorScroll',
+			function ($scope, $http,$location,$anchorScroll) {
+				$scope.githubUSername = "";
 
-		$scope.search = function (githubUSername) {
-			$scope.error = "";
-			$scope.user=null;
-			$scope.repos=null;
-			
-			console.log('searching...');
-			$http.get('https://api.github.com/users/' + githubUSername).
-				then(function (response) {
-					$scope.user = response.data;
-				}, notFoundError);
-			$http.get('https://api.github.com/users/' + githubUSername + '/repos').
-				then(function (response) {
-					$scope.repos = response.data;
-				}, notFoundError);
-		}
-	}]);
+				var notFoundError = function (dets) {
+					$scope.error = "Could not find the requested data";
+				}
+
+				$scope.search = function (githubUSername) {
+					$scope.error = "";
+					$scope.user = null;
+					$scope.repos = null;
+
+					console.log('searching...');
+					$http.get('https://api.github.com/users/' + githubUSername).
+						then(function (response) {
+							$scope.user = response.data;
+							$location.hash('userRepos');
+							$anchorScroll();
+						}, notFoundError);
+					$http.get('https://api.github.com/users/' + githubUSername + '/repos').
+						then(function (response) {
+							$scope.repos = response.data;
+						}, notFoundError);
+				}
+			}]);
 })()
