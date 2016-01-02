@@ -1,15 +1,5 @@
 (function () {
 	
-	var githubModule = angular.module("githubModule", ['datatables', 'ngroutes']);
-	githubModule.config(function ($routeProvider) {
-		$routeProvider.
-			when('/user',
-				{
-					templateUrl: 'githubViewer.html',
-					controller: "githubCtrl"
-				}).
-			otherwise({ redirectTo: "/user" });
-	});
 	githubModule.controller(
 		"githubCtrl",
 		['$scope', '$location', '$anchorScroll', 'github',
@@ -37,4 +27,4 @@
 					}, notFoundError);
 				}
 			}]);
-})()
+}());
