@@ -1,5 +1,5 @@
 (function () {
-	
+	var githubModule = angular.module("githubModule");
 	githubModule.controller(
 		"githubCtrl",
 		['$scope', '$location', '$anchorScroll', 'github',
