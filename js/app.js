@@ -5,7 +5,7 @@
 	githubModule.config(function ($routeProvider) {
 		$routeProvider
 			.when('/',{
-				templateUrl:'/views/userDetails.html',
+				templateUrl:'/views/userDetailsAndRepos.html',
 				// controller:'githubCtrl'
 				
 			})
