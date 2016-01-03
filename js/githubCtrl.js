@@ -19,7 +19,7 @@
 					github.getUser(githubUSername).then(function (data) {
 						$scope.user = data;
 						console.log(data);
-						github.getRepos($scope.user.username).then(function (data) {
+						github.getRepos($scope.user.repos_url).then(function (data) {
 							$scope.repos = data;
 							$location.hash('userRepos');
 							$anchorScroll();

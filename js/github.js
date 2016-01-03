@@ -18,6 +18,6 @@
 			getRepos:getRepos
 		}
 	}
-	var module= angular.module('githubModule');
-		module.factory('github',github);
+	var githubModule= angular.module('githubModule');
+		githubModule.factory('github',github);
 } ());
