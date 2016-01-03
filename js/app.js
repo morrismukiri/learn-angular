@@ -1,6 +1,6 @@
 (function () {
 
-	var githubModule = angular.module("githubModule", ['datatables', 'ngroutes']);
+	var githubModule = angular.module("githubModule", ['datatables', 'ngRoute']);
 	githubModule.config(function ($routeProvider) {
 		$routeProvider.
 			when('/user',
