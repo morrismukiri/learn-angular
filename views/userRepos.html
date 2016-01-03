@@ -1,0 +1,32 @@
+<h2 class="h2" ng-show="repos">Projects</h2>
+<hr>
+<div class="error label label-warning" ng-show="error">{{ error }}</div>
+<div class="table-container container-fluid" ng-show="repos">
+	<table i="userRepos" datatable="ng" class="table table-bordered table-striped table-condensed row-border hover">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Language</th>
+				<th>Created</th>
+				<th>Updated</th>
+				<th>Watchers</th>
+				<th>Stars</th>
+				<th>Forks</th>
+			</tr>
+		</thead>
+		<tbdoy>
+			<tr ng-repeat="repo in repos">
+				<td><a href="{{repo.homepage}}" title="{{repo.homepage}}">{{repo.name}}</a>
+					<br> <a href="{{repo.html_url}}" title="{{repo.html_url}}">{{repo.full_name}})</a></td>
+				<td>{{repo.description}}</td>
+				<td>{{repo.language}}</td>
+				<td>{{repo.created_at | date}}</td>
+				<td>{{repo.updated_at | date}}</td>
+				<td>{{repo.watchers_count | number}}</td>
+				<td>{{repo.stargazers_count | number}}</td>
+				<td>{{repo.forks_count | number}}</td>
+			</tr>
+		</tbdoy>
+	</table>
+</div>

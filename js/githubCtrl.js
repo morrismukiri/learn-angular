@@ -2,9 +2,11 @@
 	var githubModule = angular.module("githubModule");
 	githubModule.controller(
 		"githubCtrl",
-		['$scope', '$location', '$anchorScroll', 'github',
-			function ($scope, $location, $anchorScroll, github) {
+		['$scope', '$location', '$anchorScroll', 'github','$route','$routeParams',
+			function ($scope, $location, $anchorScroll, github,$route,$routeParams) {
+				$scope.route=$route;
 				$scope.githubUSername = "";
+				console.log($routeParams);
 
 				var notFoundError = function (dets) {
 					$scope.error = "Could not find the requested data";

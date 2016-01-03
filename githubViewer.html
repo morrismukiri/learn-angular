@@ -8,23 +8,23 @@
 
 	<script src="/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
 	<script src="/bower_components/angular/angular.min.js"></script>
-	<script src="/bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
 	<script src="/bower_components/angular-route/angular-route.min.js"></script>
+	<script src="/bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
+
 
 	<script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-	<script src="js/app.js"></script>
-	<script src="js/githubCtrl.js"></script>
-	<script src="js/github.js"></script>
+	<script src="/js/app.js"></script>
+	<script src="/js/githubCtrl.js"></script>
+	<script src="/js/github.js"></script>
 	<link rel="stylesheet" href="/bower_components/datatables/media/css/dataTables.bootstrap.min.css">
 	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body ng-app="githubModule" class="container">
 
 
 	<div class="userData " ng-controller="githubCtrl">
-
 		<form ng-submit="search(githubUSername)">
 			<div class="container">
 				<div class="row">
@@ -33,9 +33,7 @@
 							<div class="input-group stylish-input-group">
 								<input type="search" ng-model="githubUSername" class="form-control" placeholder="Search">
 								<span class="input-group-addon">
-                        <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-								</button>
+									<button type="submit"><span class="glyphicon glyphicon-search"></span></button>
 								</span>
 							</div>
 						</div>
@@ -43,45 +41,9 @@
 				</div>
 			</div>
 		</form>
-		<div class="details container" ng-show="user" id="userDetails">
-			<div class="col-xs-12"><a href="{{user.html_url}}" title="{{user.html_url}}" class="h3">{{user.name}}</a></div>
-			<div class="col-xs-12"><a href="mailto:{{email}}" class="h4">{{email}}</a></div>
-			<div class="col-xs-12">{{user.company}}</div>
-			<img ng-src="{{user.avatar_url}}s=460" width="150">
-		</div>
-		<h2 class="h2" ng-show="repos">Projects</h2>
-		<hr>
-		<div class="error label label-warning" ng-show="error">{{ error }}</div>
-		<div class="table-container container-fluid" ng-show="repos">
-			<table i="userRepos" datatable="ng" class="table table-bordered table-striped table-condensed row-border hover">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Language</th>
-						<th>Created</th>
-						<th>Updated</th>
-						<th>Watchers</th>
-						<th>Stars</th>
-						<th>Forks</th>
-					</tr>
-				</thead>
-				<tbdoy>
-					<tr ng-repeat="repo in repos">
-						<td><a href="{{repo.homepage}}" title="{{repo.homepage}}">{{repo.name}}</a>
-							<br> <a href="{{repo.html_url}}" title="{{repo.html_url}}">{{repo.full_name}})</a></td>
-						<td>{{repo.description}}</td>
-						<td>{{repo.language}}</td>
-						<td>{{repo.created_at | date}}</td>
-						<td>{{repo.updated_at | date}}</td>
-						<td>{{repo.watchers_count | number}}</td>
-						<td>{{repo.stargazers_count | number}}</td>
-						<td>{{repo.forks_count | number}}</td>
-					</tr>
-				</tbdoy>
-			</table>
-		</div>
+		<div ng-view></div>
 	</div>
+	
 </body>
 
 </html>
