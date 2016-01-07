@@ -6,10 +6,13 @@
 		$routeProvider
 			.when('/',{
 				templateUrl:'/views/userDetailsAndRepos.html',
-				// controller:'githubCtrl'
+				controller:'githubCtrl'
 				
 			})
-			.when('/repos',
+			.when("/user/:username",{
+				templateUrl:'/views/userDetailsAndRepos.html',
+			})
+			.when("/user/:username/repos",
 				{
 					templateUrl: '/views/userRepos.html',
 					// controller:'githubCtrl'

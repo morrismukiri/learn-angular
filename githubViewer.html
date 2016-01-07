@@ -15,6 +15,7 @@
 	<script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
 	<script src="/js/app.js"></script>
 	<script src="/js/githubCtrl.js"></script>
+	<script src="/js/searchCtrl.js"></script>
 	<script src="/js/github.js"></script>
 	<link rel="stylesheet" href="/bower_components/datatables/media/css/dataTables.bootstrap.min.css">
 	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -24,8 +25,8 @@
 <body ng-app="githubModule" class="container">
 
 
-	<div class="userData " ng-controller="githubCtrl">
-		<form ng-submit="search(githubUSername)">
+	<div class="userData ">
+		<form ng-controller="searchCtrl" ng-submit="search(githubUSername)">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3">
@@ -43,7 +44,7 @@
 		</form>
 		<div ng-view></div>
 	</div>
-	
+
 </body>
 
 </html>
