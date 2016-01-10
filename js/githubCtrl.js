@@ -6,7 +6,8 @@
 			function ($scope, $location,  github, $route, $routeParams) {
 				$scope.route = $route;
 				$scope.githubUSername = $routeParams.username;
-				console.log($route);
+				console.log($routeParams);
+				console.log("Username: "+$routeParams.username);
 
 				var notFoundError = function (dets) {
 					$scope.error = "Could not find the requested data";
