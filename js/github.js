@@ -11,13 +11,13 @@
 			return $http.get(repos_url).
 				then(function (response) {
 					return response.data;
-				})
-		}
+				});
+		};
 		return {
 			getUser:getUser,
 			getRepos:getRepos
-		}
-	}
+		};
+	};
 	var githubModule= angular.module('githubModule');
 		githubModule.factory('github',github);
 } ());

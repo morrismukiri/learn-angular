@@ -19,4 +19,4 @@
 				}).
 			otherwise({ redirectTo: "/" });
 	});	
-})()
+})();

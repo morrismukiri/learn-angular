@@ -1,4 +1,4 @@
 (function () {
-var githubModule = angular.module("githubModule");
-	
-}())
+    var githubModule = angular.module("githubModule");
+
+} ());

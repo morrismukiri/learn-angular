@@ -1,14 +1,14 @@
 (function () {
-	var githubModule = angular.module("githubModule");
-	githubModule.controller(
-		"searchCtrl",
-		['$scope', '$location',
-			function ($scope, $location) {
+    var githubModule = angular.module("githubModule");
+    githubModule.controller(
+        "searchCtrl",
+        ['$scope', '$location',
+            function ($scope, $location) {
 
-				
-				$scope.search = function (githubUSername) {
-					$location.path('/user/' + githubUSername)
-				}
 
-			}]);
+                $scope.search = function (githubUSername) {
+                    $location.path('/user/' + githubUSername);
+                };
+
+            }]);
 } ());
